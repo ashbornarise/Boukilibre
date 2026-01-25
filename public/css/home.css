@@ -1,0 +1,422 @@
+/* ============================================
+   HOMEPAGE SPECIFIC STYLES
+   ============================================ */
+
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+            var(--color-primary-dark) 0%,
+            var(--color-primary) 50%,
+            var(--color-primary-light) 100%);
+    z-index: -1;
+}
+
+.hero-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(244, 166, 184, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(244, 166, 184, 0.15) 0%, transparent 50%);
+    animation: pulse 8s ease-in-out infinite;
+}
+
+.hero-content {
+    text-align: center;
+    color: var(--color-white);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: var(--font-size-6xl);
+    font-weight: var(--font-weight-extrabold);
+    color: var(--color-white);
+    margin-bottom: var(--space-4);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+    font-size: var(--font-size-xl);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--space-6);
+    line-height: var(--line-height-relaxed);
+}
+
+.hero-cta {
+    display: flex;
+    gap: var(--space-3);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-8);
+}
+
+.hero-stats {
+    display: flex;
+    gap: var(--space-6);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: var(--space-10);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-accent-light);
+    margin-bottom: var(--space-1);
+}
+
+.stat-label {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Section Header */
+.section-header {
+    margin-bottom: var(--space-8);
+}
+
+.section-header h2 {
+    margin-bottom: var(--space-3);
+}
+
+.section-description {
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-600);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Ebook Cards */
+.ebooks-grid {
+    margin-bottom: var(--space-6);
+}
+
+.ebook-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.ebook-image {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.ebook-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.ebook-card:hover .ebook-image img {
+    transform: scale(1.05);
+}
+
+.ebook-badge {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    padding: var(--space-1) var(--space-3);
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+    color: var(--color-white);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.ebook-content {
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.ebook-category {
+    display: inline-block;
+    padding: var(--space-1) var(--space-2);
+    background-color: var(--color-gray-100);
+    color: var(--color-primary);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-3);
+    width: fit-content;
+}
+
+.ebook-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-3);
+    color: var(--color-primary);
+}
+
+.ebook-description {
+    font-size: var(--font-size-base);
+    color: var(--color-gray-600);
+    margin-bottom: var(--space-4);
+    line-height: var(--line-height-relaxed);
+}
+
+.ebook-features {
+    list-style: none;
+    margin-bottom: var(--space-4);
+}
+
+.ebook-features li {
+    padding: var(--space-2) 0;
+    color: var(--color-gray-700);
+    font-size: var(--font-size-sm);
+    border-bottom: 1px solid var(--color-gray-200);
+}
+
+.ebook-features li:last-child {
+    border-bottom: none;
+}
+
+.ebook-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-gray-200);
+}
+
+.ebook-price {
+    display: flex;
+    flex-direction: column;
+}
+
+.price-amount {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+}
+
+/* Benefits Section */
+.benefits-grid {
+    gap: var(--space-5);
+}
+
+.benefit-card {
+    text-align: center;
+    padding: var(--space-6);
+}
+
+.benefit-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--space-4);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: var(--color-white);
+    border-radius: var(--radius-xl);
+}
+
+.benefit-card h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-3);
+    color: var(--color-primary);
+}
+
+.benefit-card p {
+    font-size: var(--font-size-base);
+    color: var(--color-gray-600);
+    line-height: var(--line-height-relaxed);
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg,
+            var(--color-primary-dark) 0%,
+            var(--color-primary) 100%);
+}
+
+.cta-content {
+    padding: var(--space-10) var(--space-6);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.cta-content h2 {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--space-4);
+}
+
+.cta-description {
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-600);
+    margin-bottom: var(--space-6);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Newsletter Section */
+.newsletter-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.newsletter-text {
+    flex: 1;
+}
+
+.newsletter-text h3 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-2);
+}
+
+.newsletter-text p {
+    font-size: var(--font-size-base);
+    color: var(--color-gray-600);
+}
+
+.newsletter-form {
+    flex: 1;
+    display: flex;
+    gap: var(--space-2);
+}
+
+.newsletter-form .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.newsletter-message {
+    margin-top: var(--space-3);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    text-align: center;
+    display: none;
+}
+
+.newsletter-message.success {
+    display: block;
+    background-color: var(--color-success);
+    color: var(--color-white);
+}
+
+.newsletter-message.error {
+    display: block;
+    background-color: var(--color-error);
+    color: var(--color-white);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 80vh;
+        padding-top: 100px;
+    }
+
+    .hero-title {
+        font-size: var(--font-size-4xl);
+    }
+
+    .hero-subtitle {
+        font-size: var(--font-size-lg);
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .hero-stats {
+        gap: var(--space-4);
+    }
+
+    .stat-number {
+        font-size: var(--font-size-3xl);
+    }
+
+    .ebook-image {
+        height: 250px;
+    }
+
+    .newsletter-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .newsletter-form .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: var(--font-size-3xl);
+    }
+
+    .hero-subtitle {
+        font-size: var(--font-size-base);
+    }
+
+    .stat-number {
+        font-size: var(--font-size-2xl);
+    }
+
+    .ebook-image {
+        height: 200px;
+    }
+
+    .benefit-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .benefit-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+}

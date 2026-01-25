@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Questions fréquentes sur Boukilibre - Formats, paiement, téléchargement, support">
+    <title>FAQ - Boukilibre</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/faq.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="navbar-logo">Boukilibre</a>
+
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="index.html" class="navbar-link">Accueil</a></li>
+                <li><a href="catalog.html" class="navbar-link">Catalogue</a></li>
+                <li><a href="blog.html" class="navbar-link">Blog</a></li>
+                <li><a href="about.html" class="navbar-link">À propos</a></li>
+                <li><a href="contact.html" class="navbar-link">Contact</a></li>
+                <li><a href="#" class="btn btn-primary btn-sm" id="cartBtn">Panier <span id="cartCount">0</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Questions Fréquentes</h1>
+            <p class="page-subtitle">Trouvez rapidement les réponses à vos questions</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container container-narrow">
+            <!-- Search FAQ -->
+            <div class="faq-search">
+                <input type="text" id="faqSearch" class="form-input" placeholder="Rechercher une question...">
+            </div>
+
+            <!-- FAQ Categories -->
+            <div class="faq-categories">
+                <button class="category-btn active" data-category="all">Toutes</button>
+                <button class="category-btn" data-category="formats">Formats</button>
+                <button class="category-btn" data-category="paiement">Paiement</button>
+                <button class="category-btn" data-category="telechargement">Téléchargement</button>
+                <button class="category-btn" data-category="support">Support</button>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div class="faq-accordion">
+                <!-- Formats -->
+                <div class="faq-item" data-category="formats">
+                    <button class="faq-question">
+                        <span>Dans quel format sont les ebooks ?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Tous nos ebooks sont disponibles au format PDF, compatible avec tous les appareils
+                            (ordinateur, tablette, smartphone). Le PDF vous permet de lire confortablement et de
+                            conserver vos ebooks indéfiniment.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="formats">
+                    <button class="faq-question">
+                        <span>Puis-je lire les ebooks sur mon smartphone ?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Oui, absolument ! Nos ebooks au format PDF peuvent être lus sur n'importe quel appareil :
+                            smartphone (iOS/Android), tablette, ordinateur. Vous pouvez utiliser n'importe quelle
+                            application de lecture PDF.</p>
+                    </div>
+                </div>
+
+                <!-- Paiement -->
+                <div class="faq-item" data-category="paiement">
+                    <button class="faq-question">
+                        <span>Quels sont les moyens de paiement acceptés ?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nous acceptons plusieurs moyens de paiement sécurisés :</p>
+                        <ul>
+                            <li>Cartes bancaires (Visa, Mastercard)</li>
+                            <li>PayPal</li>
+                            <li>Moov Money</li>
+                            <li>Mixx by Yas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="paiement">
+                    <button class="faq-question">
+                        <span>Le paiement est-il sécurisé ?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Oui, totalement. Toutes les transactions sont cryptées et sécurisées via Stripe et PayPal,
+                            leaders mondiaux du paiement en ligne. Nous ne stockons aucune information bancaire sur nos
+                            serveurs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="paiement">
+                    <button class="faq-question">
+                        <span>Puis-je obtenir un remboursement ?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nous offrons une garantie satisfait ou remboursé de 7 jours. Si vous n'êtes pas satisfait de
+                            votre achat, contactez-nous à support@boukilibre.com avec votre numéro de commande pour
+                            obtenir un remboursement complet.</p>
+                    </div>
+                </div>
+
+                <!-- Téléchargement -->
+                <div class="faq-item" data-category="telechargement">
+                    <button class="faq-question">
+                        <span>Comment télécharger mon ebook après l'achat ?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Immédiatement après votre paiement, vous recevrez un email de confirmation contenant un lien
+                            de téléchargement direct. Cliquez simplement sur le lien pour télécharger votre ebook. Le
+                            lien reste actif pendant 30 jours.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="telechargement">
+                    <button class="faq-question">
+                        <span>Je n'ai pas reçu mon email de téléchargement, que faire ?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Vérifiez d'abord votre dossier spam/courrier indésirable. Si vous ne trouvez toujours pas
+                            l'email après 15 minutes, contactez-nous à support@boukilibre.com avec votre numéro de
+                            commande et nous vous renverrons le lien immédiatement.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="telechargement">
+                    <button class="faq-question">
+                        <span>Combien de fois puis-je télécharger mon ebook ?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Vous pouvez télécharger votre ebook autant de fois que nécessaire pendant 30 jours après
+                            l'achat. Nous vous recommandons de sauvegarder une copie sur votre appareil ou dans le
+                            cloud.</p>
+                    </div>
+                </div>
+
+                <!-- Support -->
+                <div class="faq-item" data-category="support">
+                    <button class="faq-question">
+                        <span>Comment contacter le support client ?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Vous pouvez nous contacter par email à support@boukilibre.com ou via notre <a
+                                href="contact.html">formulaire de contact</a>. Nous répondons généralement sous 24
+                            heures (jours ouvrables).</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="support">
+                    <button class="faq-question">
+                        <span>Proposez-vous des ebooks gratuits ?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nous proposons régulièrement des extraits gratuits et du contenu exclusif à nos abonnés
+                            newsletter. Inscrivez-vous sur notre <a href="index.html#newsletter">page d'accueil</a> pour
+                            ne rien manquer !</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="support">
+                    <button class="faq-question">
+                        <span>Allez-vous ajouter de nouveaux ebooks ?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Oui ! Nous travaillons constamment sur de nouveaux contenus. Abonnez-vous à notre newsletter
+                            pour être informé en avant-première des nouvelles sorties et bénéficier d'offres exclusives.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Still have questions -->
+            <div class="faq-cta">
+                <h3>Vous ne trouvez pas la réponse à votre question ?</h3>
+                <p>Notre équipe est là pour vous aider</p>
+                <a href="contact.html" class="btn btn-primary btn-lg">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Boukilibre</h4>
+                    <p>Votre partenaire de confiance pour des ebooks premium qui transforment votre vie et votre
+                        carrière.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="catalog.html">Catalogue</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Ressources</h4>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#">Conditions d'utilisation</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Politique de remboursement</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li>Email: contact@boukilibre.com</li>
+                        <li>Support: support@boukilibre.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Boukilibre. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/faq.js"></script>
+</body>
+
+</html>

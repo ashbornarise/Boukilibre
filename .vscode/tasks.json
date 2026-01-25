@@ -1,0 +1,148 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Install Dependencies",
+			"type": "shell",
+			"command": "npm install",
+			"args": [],
+			"problemMatcher": [
+				"$npm"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Start Development Server",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"start"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Install Dependencies",
+			"type": "shell",
+			"command": "npm install",
+			"args": [],
+			"problemMatcher": [
+				"$npm"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Start Development Server",
+			"type": "shell",
+			"command": "npm run dev",
+			"args": [],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Install Dependencies",
+			"type": "shell",
+			"command": "npm install",
+			"args": [],
+			"problemMatcher": [
+				"$npm"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Fix Vulnerabilities",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"audit",
+				"fix"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Force Fix Vulnerabilities",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"audit",
+				"fix",
+				"--force"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Install Dependencies Again",
+			"type": "shell",
+			"command": "npm install",
+			"args": [],
+			"problemMatcher": [
+				"$npm"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Run NPM Audit",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"audit"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run NPM Audit in JSON",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"audit",
+				"--json"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run NPM Audit in JSON",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"audit",
+				"--json"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Upgrade Nodemon",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"install",
+				"nodemon@latest"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Upgrade Nodemon",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"install",
+				"nodemon@latest"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Fix Vulnerabilities",
+			"type": "shell",
+			"command": "npm audit fix",
+			"args": [],
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

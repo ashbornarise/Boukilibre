@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Catalogue d'ebooks premium Boukilibre - Entrepreneuriat, Développement Personnel, Études">
+    <title>Catalogue - Boukilibre</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/catalog.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="navbar-logo">Boukilibre</a>
+
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="index.html" class="navbar-link">Accueil</a></li>
+                <li><a href="catalog.html" class="navbar-link active">Catalogue</a></li>
+                <li><a href="blog.html" class="navbar-link">Blog</a></li>
+                <li><a href="about.html" class="navbar-link">À propos</a></li>
+                <li><a href="contact.html" class="navbar-link">Contact</a></li>
+                <li><a href="#" class="btn btn-primary btn-sm" id="cartBtn">Panier <span id="cartCount">0</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Notre Catalogue d'Ebooks</h1>
+            <p class="page-subtitle">Découvrez nos guides premium pour transformer votre vie</p>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section class="section">
+        <div class="container">
+            <!-- Filters and Search -->
+            <div class="catalog-controls">
+                <div class="search-box">
+                    <input type="text" id="searchInput" class="form-input" placeholder="Rechercher un ebook...">
+                    <button class="btn btn-primary" id="searchBtn" aria-label="Rechercher"
+                        title="Rechercher des ebooks">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="m21 21-4.35-4.35" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="filter-group">
+                    <label class="filter-label">Catégorie :</label>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-category="all">Tous</button>
+                        <button class="filter-btn" data-category="entrepreneuriat">Entrepreneuriat</button>
+                        <button class="filter-btn" data-category="developpement">Développement Personnel</button>
+                        <button class="filter-btn" data-category="etudes">Études</button>
+                    </div>
+                </div>
+
+                <div class="sort-group">
+                    <label class="filter-label">Trier par :</label>
+                    <select id="sortSelect" class="form-select" aria-label="Trier par" title="Trier les ebooks">
+                        <option value="newest">Plus récent</option>
+                        <option value="popular">Popularité</option>
+                        <option value="price-low">Prix croissant</option>
+                        <option value="price-high">Prix décroissant</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Results Count -->
+            <div class="results-info">
+                <p><span id="resultsCount">2</span> ebook(s) trouvé(s)</p>
+            </div>
+
+            <!-- Ebooks Grid -->
+            <div class="catalog-grid grid grid-3" id="catalogGrid">
+                <!-- Ebook 1 -->
+                <div class="ebook-card card-premium" data-category="entrepreneuriat" data-price="2000">
+                    <div class="ebook-image">
+                        <img src="images/ebook-1.jpg" alt="Guide Complet de l'Entrepreneur Moderne" loading="lazy">
+                        <div class="ebook-badge">Nouveau</div>
+                    </div>
+                    <div class="ebook-content">
+                        <div class="ebook-category">Entrepreneuriat</div>
+                        <h3 class="ebook-title">Guide Complet de l'Entrepreneur Moderne</h3>
+                        <p class="ebook-description">Apprenez les stratégies éprouvées pour lancer et développer votre
+                            entreprise avec succès.</p>
+                        <div class="ebook-footer">
+                            <div class="ebook-price">
+                                <span class="price-amount">2 000 FCFA</span>
+                            </div>
+                            <div class="ebook-actions">
+                                <a href="product.html?id=1" class="btn btn-secondary btn-sm">Détails</a>
+                                <button class="btn btn-primary btn-sm add-to-cart" data-id="1"
+                                    data-title="Guide Complet de l'Entrepreneur Moderne"
+                                    data-price="2000">Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ebook 2 -->
+                <div class="ebook-card card-premium" data-category="developpement" data-price="2000">
+                    <div class="ebook-image">
+                        <img src="images/ebook-2.jpg" alt="Maîtrisez Votre Productivité et Votre Temps" loading="lazy">
+                        <div class="ebook-badge">Populaire</div>
+                    </div>
+                    <div class="ebook-content">
+                        <div class="ebook-category">Développement Personnel</div>
+                        <h3 class="ebook-title">Maîtrisez Votre Productivité et Votre Temps</h3>
+                        <p class="ebook-description">Découvrez les méthodes scientifiquement prouvées pour multiplier
+                            votre productivité.</p>
+                        <div class="ebook-footer">
+                            <div class="ebook-price">
+                                <span class="price-amount">2 000 FCFA</span>
+                            </div>
+                            <div class="ebook-actions">
+                                <a href="product.html?id=2" class="btn btn-secondary btn-sm">Détails</a>
+                                <button class="btn btn-primary btn-sm add-to-cart" data-id="2"
+                                    data-title="Maîtrisez Votre Productivité et Votre Temps"
+                                    data-price="2000">Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- No Results Message -->
+            <div class="no-results" id="noResults">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                </svg>
+                <h3>Aucun ebook trouvé</h3>
+                <p>Essayez de modifier vos critères de recherche ou de filtrage.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section bg-gray-light">
+        <div class="container">
+            <div class="cta-content text-center">
+                <h2>Vous ne trouvez pas ce que vous cherchez ?</h2>
+                <p class="cta-description">Contactez-nous pour nous faire part de vos besoins. Nous créons régulièrement
+                    de nouveaux contenus.</p>
+                <a href="contact.html" class="btn btn-primary btn-lg">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Boukilibre</h4>
+                    <p>Votre partenaire de confiance pour des ebooks premium qui transforment votre vie et votre
+                        carrière.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="catalog.html">Catalogue</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Ressources</h4>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#">Conditions d'utilisation</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Politique de remboursement</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li>Email: contact@boukilibre.com</li>
+                        <li>Support: support@boukilibre.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Boukilibre. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/catalog.js"></script>
+</body>
+
+</html>
