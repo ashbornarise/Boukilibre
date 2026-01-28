@@ -779,34 +779,185 @@ strong {
 }
 
 /* ============================================
-   RESPONSIVE TYPOGRAPHY
+   RESPONSIVE IMPROVEMENTS
    ============================================ */
+
+/* Touch target sizes for mobile */
 @media (max-width: 768px) {
   :root {
     --font-size-5xl: 2.5rem;
-    /* 40px */
     --font-size-4xl: 2rem;
-    /* 32px */
     --font-size-3xl: 1.5rem;
-    /* 24px */
+  }
+
+  .container {
+    padding: 0 var(--space-3);
+  }
+
+  /* Minimum touch target size */
+  .btn,
+  .navbar-link,
+  .form-input,
+  .form-select,
+  .form-textarea {
+    min-height: 44px;
+  }
+
+  .btn-sm {
+    min-height: 40px;
+    padding: var(--space-2) var(--space-3);
+  }
+
+  /* Better mobile navigation */
+  .navbar-menu {
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+
+  .navbar-menu li:last-child {
+    padding-top: var(--space-3);
+    border-bottom: none;
+  }
+
+  .navbar-menu .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Footer improvements */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    text-align: center;
+  }
+
+  .footer-section {
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .footer-section:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --font-size-5xl: 2.25rem;
+    --font-size-4xl: 1.875rem;
+    --font-size-3xl: 1.5rem;
+    --font-size-2xl: 1.25rem;
+  }
+
+  .container {
+    padding: 0 var(--space-2);
+  }
+
+  /* Improve button sizes on small screens */
+  .btn-lg {
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--font-size-base);
+    width: 100%;
   }
 }
 
 @media (max-width: 480px) {
   :root {
     --font-size-5xl: 2rem;
-    /* 32px */
     --font-size-4xl: 1.75rem;
-    /* 28px */
     --font-size-3xl: 1.375rem;
-    /* 22px */
+    --font-size-2xl: 1.125rem;
   }
 
   .section {
-    padding: var(--space-8) 0;
+    padding: var(--space-6) 0;
   }
 
   .section-lg {
-    padding: var(--space-10) 0;
+    padding: var(--space-8) 0;
+  }
+
+  /* Card improvements */
+  .card {
+    border-radius: var(--radius-lg);
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  /* Form improvements */
+  .form-input,
+  .form-textarea,
+  .form-select {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+
+  /* Footer compact on mobile */
+  .footer {
+    padding: var(--space-6) 0 var(--space-3);
+  }
+
+  .footer-content {
+    margin-bottom: var(--space-4);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================ */
+
+/* Focus styles */
+.btn:focus-visible,
+.form-input:focus-visible,
+.form-textarea:focus-visible,
+.form-select:focus-visible,
+.navbar-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-primary {
+    border: 2px solid var(--color-white);
+  }
+
+  .card {
+    border: 2px solid var(--color-gray-800);
+  }
+}
+
+/* Print styles */
+@media print {
+  .navbar,
+  .footer,
+  .btn {
+    display: none;
+  }
+
+  body {
+    font-size: 12pt;
+    color: black;
+    background: white;
+  }
+
+  .section {
+    padding: 1rem 0;
   }
 }

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Blog Boukilibre - Articles sur l'entrepreneuriat, le développement personnel et la productivité">
+    <title>Blog - Boukilibre</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/blog.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="navbar-logo">Boukilibre</a>
+
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="index.html" class="navbar-link">Accueil</a></li>
+                <li><a href="catalog.html" class="navbar-link">Catalogue</a></li>
+                <li><a href="blog.html" class="navbar-link active">Blog</a></li>
+                <li><a href="about.html" class="navbar-link">A propos</a></li>
+                <li><a href="contact.html" class="navbar-link">Contact</a></li>
+                <li><a href="#" class="btn btn-primary btn-sm" id="cartBtn">Panier <span id="cartCount">0</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Notre Blog</h1>
+            <p class="page-subtitle">Conseils, astuces et inspirations pour votre reussite</p>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="section">
+        <div class="container">
+            <!-- Blog Categories -->
+            <div class="blog-categories">
+                <button class="category-btn active" data-category="all">Tous les articles</button>
+                <button class="category-btn" data-category="entrepreneuriat">Entrepreneuriat</button>
+                <button class="category-btn" data-category="productivite">Productivite</button>
+                <button class="category-btn" data-category="developpement">Developpement Personnel</button>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="blog-grid" id="blogGrid">
+                <!-- Article 1 -->
+                <article class="blog-card card" data-category="entrepreneuriat">
+                    <div class="blog-image">
+                        <img src="images/blog-1.jpg" alt="5 erreurs a eviter en entrepreneuriat" loading="lazy">
+                        <div class="blog-category-tag">Entrepreneuriat</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">15 Janvier 2026</span>
+                            <span class="blog-read-time">5 min de lecture</span>
+                        </div>
+                        <h2 class="blog-title">5 Erreurs Fatales a Eviter Quand Vous Lancez Votre Entreprise</h2>
+                        <p class="blog-excerpt">Decouvrez les pieges les plus courants qui font echouer 80% des
+                            entrepreneurs et comment les eviter pour assurer le succes de votre projet.</p>
+                        <a href="#" class="btn btn-secondary btn-sm">Lire l'article</a>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="blog-card card" data-category="productivite">
+                    <div class="blog-image">
+                        <img src="images/blog-2.jpg" alt="Techniques de productivite" loading="lazy">
+                        <div class="blog-category-tag">Productivite</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">10 Janvier 2026</span>
+                            <span class="blog-read-time">7 min de lecture</span>
+                        </div>
+                        <h2 class="blog-title">La Methode Pomodoro : Doublez Votre Productivite en 1 Semaine</h2>
+                        <p class="blog-excerpt">Apprenez a utiliser cette technique simple mais puissante pour accomplir
+                            plus en moins de temps et eliminer la procrastination.</p>
+                        <a href="#" class="btn btn-secondary btn-sm">Lire l'article</a>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="blog-card card" data-category="developpement">
+                    <div class="blog-image">
+                        <img src="images/blog-3.jpg" alt="Habitudes des personnes qui reussissent" loading="lazy">
+                        <div class="blog-category-tag">Developpement Personnel</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">5 Janvier 2026</span>
+                            <span class="blog-read-time">6 min de lecture</span>
+                        </div>
+                        <h2 class="blog-title">7 Habitudes Matinales des Personnes Qui Reussissent</h2>
+                        <p class="blog-excerpt">Comment structurer votre matinee pour maximiser votre energie, votre
+                            concentration et atteindre vos objectifs plus rapidement.</p>
+                        <a href="#" class="btn btn-secondary btn-sm">Lire l'article</a>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="blog-card card" data-category="entrepreneuriat">
+                    <div class="blog-image">
+                        <img src="images/blog-4.jpg" alt="Idees de business en ligne" loading="lazy">
+                        <div class="blog-category-tag">Entrepreneuriat</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">28 Decembre 2025</span>
+                            <span class="blog-read-time">8 min de lecture</span>
+                        </div>
+                        <h2 class="blog-title">10 Idees de Business en Ligne a Lancer en 2026</h2>
+                        <p class="blog-excerpt">Les opportunites les plus prometteuses pour demarrer un business en
+                            ligne rentable cette annee, meme sans capital initial.</p>
+                        <a href="#" class="btn btn-secondary btn-sm">Lire l'article</a>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="blog-card card" data-category="productivite">
+                    <div class="blog-image">
+                        <img src="images/blog-5.jpg" alt="Gestion du temps" loading="lazy">
+                        <div class="blog-category-tag">Productivite</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">20 Decembre 2025</span>
+                            <span class="blog-read-time">5 min de lecture</span>
+                        </div>
+                        <h2 class="blog-title">Comment Dire Non Sans Culpabiliser : Le Guide Complet</h2>
+                        <p class="blog-excerpt">Maitriser l'art de dire non est essentiel pour proteger votre temps et
+                            vous concentrer sur ce qui compte vraiment.</p>
+                        <a href="#" class="btn btn-secondary btn-sm">Lire l'article</a>
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="blog-card card" data-category="developpement">
+                    <div class="blog-image">
+                        <img src="images/blog-6.jpg" alt="Developpement de la confiance en soi" loading="lazy">
+                        <div class="blog-category-tag">Developpement Personnel</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">15 Decembre 2025</span>
+                            <span class="blog-read-time">6 min de lecture</span>
+                        </div>
+                        <h2 class="blog-title">Construire une Confiance en Soi Indestructible</h2>
+                        <p class="blog-excerpt">Les strategies psychologiques prouvees pour developper une confiance
+                            solide et durable qui vous propulsera vers le succes.</p>
+                        <a href="#" class="btn btn-secondary btn-sm">Lire l'article</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- No Results -->
+            <div class="no-results" id="noResults">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z" />
+                    <path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+                    <path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z" />
+                    <path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z" />
+                    <path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z" />
+                    <path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z" />
+                    <path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z" />
+                    <path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z" />
+                </svg>
+                <h3>Aucun article trouve</h3>
+                <p>Aucun article ne correspond a cette categorie pour le moment.</p>
+            </div>
+
+            <!-- Newsletter CTA -->
+            <div class="blog-newsletter">
+                <div class="newsletter-card card-premium">
+                    <h3>Ne manquez aucun article</h3>
+                    <p>Inscrivez-vous a notre newsletter pour recevoir nos derniers articles directement dans votre
+                        boite mail.</p>
+                    <form class="newsletter-inline-form" id="blogNewsletterForm">
+                        <input type="email" class="form-input" placeholder="Votre adresse email" required>
+                        <button type="submit" class="btn btn-primary">S'inscrire</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Ebooks Section -->
+    <section class="section bg-gray-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Ebooks Recommandes</h2>
+                <p class="section-description">Approfondissez vos connaissances avec nos guides complets</p>
+            </div>
+
+            <div class="ebooks-preview grid grid-2">
+                <div class="ebook-preview-card card">
+                    <div class="ebook-preview-content">
+                        <div class="ebook-category">Entrepreneuriat</div>
+                        <h3>Guide Complet de l'Entrepreneur Moderne</h3>
+                        <p>Toutes les strategies pour lancer et developper votre entreprise avec succes.</p>
+                        <div class="ebook-preview-footer">
+                            <span class="ebook-price">2 000 FCFA</span>
+                            <a href="product.html?id=1" class="btn btn-primary btn-sm">Decouvrir</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ebook-preview-card card">
+                    <div class="ebook-preview-content">
+                        <div class="ebook-category">Developpement Personnel</div>
+                        <h3>Maitrisez Votre Productivite et Votre Temps</h3>
+                        <p>Les methodes prouvees pour multiplier votre productivite et atteindre vos objectifs.</p>
+                        <div class="ebook-preview-footer">
+                            <span class="ebook-price">2 000 FCFA</span>
+                            <a href="product.html?id=2" class="btn btn-primary btn-sm">Decouvrir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Boukilibre</h4>
+                    <p>Votre partenaire de confiance pour des ebooks premium qui transforment votre vie et votre
+                        carriere.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="catalog.html">Catalogue</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="about.html">A propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Ressources</h4>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#">Conditions d'utilisation</a></li>
+                        <li><a href="#">Politique de confidentialite</a></li>
+                        <li><a href="#">Politique de remboursement</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li>Email: contact@boukilibre.com</li>
+                        <li>Support: support@boukilibre.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Boukilibre. Tous droits reserves.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/blog.js"></script>
+</body>
+
+</html>

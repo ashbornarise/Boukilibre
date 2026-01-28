@@ -342,81 +342,256 @@
 }
 
 /* Responsive Styles */
+
+/* Large tablets and small desktops */
+@media (max-width: 1024px) {
+    .hero-content {
+        max-width: 800px;
+    }
+
+    .hero-title {
+        font-size: var(--font-size-5xl);
+    }
+
+    .benefit-card {
+        padding: var(--space-5);
+    }
+
+    .cta-content {
+        padding: var(--space-8) var(--space-4);
+    }
+}
+
+/* Tablets */
 @media (max-width: 768px) {
     .hero {
-        min-height: 80vh;
-        padding-top: 100px;
+        min-height: auto;
+        padding-top: 90px;
+        padding-bottom: var(--space-8);
+    }
+
+    .hero-content {
+        padding: 0 var(--space-2);
     }
 
     .hero-title {
         font-size: var(--font-size-4xl);
+        margin-bottom: var(--space-3);
     }
 
     .hero-subtitle {
         font-size: var(--font-size-lg);
+        margin-bottom: var(--space-4);
     }
 
     .hero-cta {
         flex-direction: column;
         align-items: center;
+        gap: var(--space-2);
+        margin-bottom: var(--space-6);
     }
 
     .hero-cta .btn {
         width: 100%;
-        max-width: 300px;
+        max-width: 320px;
+        min-height: 52px;
     }
 
     .hero-stats {
-        gap: var(--space-4);
+        gap: var(--space-5);
+        margin-top: var(--space-6);
+    }
+
+    .stat-item {
+        min-width: 100px;
     }
 
     .stat-number {
         font-size: var(--font-size-3xl);
+    }
+
+    .section-header {
+        margin-bottom: var(--space-6);
+    }
+
+    .section-description {
+        font-size: var(--font-size-base);
     }
 
     .ebook-image {
         height: 250px;
     }
 
+    .ebook-content {
+        padding: var(--space-4);
+    }
+
+    .ebook-title {
+        font-size: var(--font-size-xl);
+    }
+
+    .ebook-footer {
+        flex-direction: column;
+        gap: var(--space-3);
+        align-items: stretch;
+    }
+
+    .ebook-footer .btn {
+        width: 100%;
+        min-height: 48px;
+    }
+
+    .price-amount {
+        font-size: var(--font-size-2xl);
+        text-align: center;
+    }
+
+    .benefit-card {
+        padding: var(--space-4);
+    }
+
+    .benefit-icon {
+        width: 64px;
+        height: 64px;
+    }
+
+    .benefit-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .benefit-card h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    .cta-content {
+        padding: var(--space-6) var(--space-4);
+        border-radius: var(--radius-lg);
+    }
+
+    .cta-content h2 {
+        font-size: var(--font-size-3xl);
+    }
+
     .newsletter-content {
         flex-direction: column;
         text-align: center;
+        gap: var(--space-4);
+    }
+
+    .newsletter-text h3 {
+        font-size: var(--font-size-2xl);
     }
 
     .newsletter-form {
         flex-direction: column;
         width: 100%;
+        gap: var(--space-3);
     }
 
     .newsletter-form .btn {
         width: 100%;
+        min-height: 48px;
     }
 }
 
+/* Small phones */
 @media (max-width: 480px) {
+    .hero {
+        padding-top: 80px;
+    }
+
     .hero-title {
         font-size: var(--font-size-3xl);
+        line-height: 1.2;
     }
 
     .hero-subtitle {
         font-size: var(--font-size-base);
+        line-height: 1.6;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+
+    .stat-item {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        text-align: left;
     }
 
     .stat-number {
         font-size: var(--font-size-2xl);
+        margin-bottom: 0;
+    }
+
+    .stat-label {
+        font-size: var(--font-size-xs);
     }
 
     .ebook-image {
         height: 200px;
     }
 
+    .ebook-title {
+        font-size: var(--font-size-lg);
+    }
+
+    .ebook-description {
+        font-size: var(--font-size-sm);
+    }
+
+    .ebook-features li {
+        font-size: var(--font-size-xs);
+        padding: var(--space-1) 0;
+    }
+
+    .price-amount {
+        font-size: var(--font-size-xl);
+    }
+
     .benefit-icon {
-        width: 60px;
-        height: 60px;
+        width: 56px;
+        height: 56px;
     }
 
     .benefit-icon svg {
-        width: 32px;
-        height: 32px;
+        width: 28px;
+        height: 28px;
+    }
+
+    .benefit-card p {
+        font-size: var(--font-size-sm);
+    }
+
+    .cta-content h2 {
+        font-size: var(--font-size-2xl);
+    }
+
+    .cta-description {
+        font-size: var(--font-size-base);
+    }
+
+    .newsletter-text h3 {
+        font-size: var(--font-size-xl);
+    }
+
+    .newsletter-text p {
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .hero-cta .btn {
+        font-size: var(--font-size-sm);
+        padding: var(--space-3) var(--space-4);
     }
 }
