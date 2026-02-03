@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Administration - Boukilibre</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../images/logo.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <!-- Login Page -->
+    <div class="login-page" id="loginPage">
+        <div class="login-container">
+            <div class="login-header">
+                <img src="../images/logo.png" alt="Boukilibre" class="login-logo">
+                <h1>Administration</h1>
+                <p>Connectez-vous pour acceder au tableau de bord</p>
+            </div>
+
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-input" placeholder="admin@boukilibre.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" class="form-input" placeholder="Votre mot de passe" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+
+                <div class="login-message" id="loginMessage"></div>
+            </form>
+
+            <div class="login-footer">
+                <a href="../index.html">Retour au site</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard" id="dashboard" style="display: none;">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../images/logo.png" alt="Boukilibre" class="sidebar-logo">
+                <span>Boukilibre</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-page="overview">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7" />
+                        <rect x="14" y="3" width="7" height="7" />
+                        <rect x="14" y="14" width="7" height="7" />
+                        <rect x="3" y="14" width="7" height="7" />
+                    </svg>
+                    <span>Vue d'ensemble</span>
+                </a>
+                <a href="#" class="nav-item" data-page="ebooks">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                    </svg>
+                    <span>Ebooks</span>
+                </a>
+                <a href="#" class="nav-item" data-page="orders">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1" />
+                        <circle cx="20" cy="21" r="1" />
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                    </svg>
+                    <span>Commandes</span>
+                </a>
+                <a href="#" class="nav-item" data-page="newsletter">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    <span>Newsletter</span>
+                </a>
+                <a href="#" class="nav-item" data-page="messages">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg>
+                    <span>Messages</span>
+                </a>
+                <a href="#" class="nav-item" data-page="settings">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3" />
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                    </svg>
+                    <span>Parametres</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="logout-btn" id="logoutBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    <span>Deconnexion</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="12" x2="21" y2="12" />
+                            <line x1="3" y1="6" x2="21" y2="6" />
+                            <line x1="3" y1="18" x2="21" y2="18" />
+                        </svg>
+                    </button>
+                    <h1 id="pageTitle">Vue d'ensemble</h1>
+                </div>
+                <div class="header-right">
+                    <span class="admin-name">Admin</span>
+                    <a href="../index.html" class="visit-site-btn" target="_blank">Voir le site</a>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Overview Page -->
+                <div class="page active" id="overviewPage">
+                    <!-- Stats Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon sales">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23" />
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Ventes du mois</h3>
+                                <p class="stat-value" id="monthlySales">0 FCFA</p>
+                                <span class="stat-change positive">+12% vs mois dernier</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon orders">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="9" cy="21" r="1" />
+                                    <circle cx="20" cy="21" r="1" />
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Commandes</h3>
+                                <p class="stat-value" id="totalOrders">0</p>
+                                <span class="stat-change positive">+5 cette semaine</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon subscribers">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                    <circle cx="9" cy="7" r="4" />
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Abonnes Newsletter</h3>
+                                <p class="stat-value" id="totalSubscribers">0</p>
+                                <span class="stat-change positive">+23 ce mois</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon ebooks">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Ebooks Actifs</h3>
+                                <p class="stat-value" id="totalEbooks">2</p>
+                                <span class="stat-change">Catalogue</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Orders -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Commandes Recentes</h2>
+                            <a href="#" class="view-all" data-page="orders">Voir tout</a>
+                        </div>
+                        <div class="card-body">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Commande</th>
+                                        <th>Client</th>
+                                        <th>Produit</th>
+                                        <th>Montant</th>
+                                        <th>Statut</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recentOrdersTable">
+                                    <tr>
+                                        <td colspan="6" class="empty-state">Aucune commande pour le moment</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ebooks Page -->
+                <div class="page" id="ebooksPage">
+                    <div class="page-header-actions">
+                        <h2>Gestion des Ebooks</h2>
+                        <button class="btn btn-primary" id="addEbookBtn">+ Ajouter un ebook</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Titre</th>
+                                        <th>Categorie</th>
+                                        <th>Prix</th>
+                                        <th>Ventes</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ebooksTable">
+                                    <tr>
+                                        <td><img src="../images/ebook-1.jpg" alt="" class="table-img"></td>
+                                        <td>Guide de l'Entrepreneur Moderne</td>
+                                        <td><span class="badge badge-primary">Entrepreneuriat</span></td>
+                                        <td>2 000 FCFA</td>
+                                        <td>0</td>
+                                        <td>
+                                            <button class="action-btn edit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                            <button class="action-btn delete"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="../images/ebook-2.jpg" alt="" class="table-img"></td>
+                                        <td>Maitrisez Votre Productivite</td>
+                                        <td><span class="badge badge-accent">Dev. Personnel</span></td>
+                                        <td>2 000 FCFA</td>
+                                        <td>0</td>
+                                        <td>
+                                            <button class="action-btn edit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                            <button class="action-btn delete"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orders Page -->
+                <div class="page" id="ordersPage">
+                    <div class="page-header-actions">
+                        <h2>Commandes</h2>
+                        <button class="btn btn-secondary" id="exportOrdersBtn">Exporter CSV</button>
+                    </div>
+
+                    <div class="filters-bar">
+                        <select class="form-select" id="orderStatusFilter">
+                            <option value="">Tous les statuts</option>
+                            <option value="completed">Payees</option>
+                            <option value="pending">En attente</option>
+                            <option value="failed">Echouees</option>
+                        </select>
+                        <input type="date" class="form-input" id="orderDateFilter">
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>N Commande</th>
+                                        <th>Client</th>
+                                        <th>Email</th>
+                                        <th>Produits</th>
+                                        <th>Total</th>
+                                        <th>Paiement</th>
+                                        <th>Statut</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ordersTable">
+                                    <tr>
+                                        <td colspan="9" class="empty-state">Aucune commande pour le moment</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Newsletter Page -->
+                <div class="page" id="newsletterPage">
+                    <div class="page-header-actions">
+                        <h2>Abonnes Newsletter</h2>
+                        <button class="btn btn-secondary" id="exportNewsletterBtn">Exporter les emails</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Email</th>
+                                        <th>Date d'inscription</th>
+                                        <th>Statut</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="newsletterTable">
+                                    <tr>
+                                        <td colspan="4" class="empty-state">Aucun abonne pour le moment</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Messages Page -->
+                <div class="page" id="messagesPage">
+                    <h2>Messages de Contact</h2>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Email</th>
+                                        <th>Message</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="messagesTable">
+                                    <tr>
+                                        <td colspan="5" class="empty-state">Aucun message pour le moment</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Page -->
+                <div class="page" id="settingsPage">
+                    <h2>Parametres</h2>
+
+                    <div class="settings-grid">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Informations du site</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Nom du site</label>
+                                    <input type="text" class="form-input" value="Boukilibre">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email de contact</label>
+                                    <input type="email" class="form-input" value="contact@boukilibre.com">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email de support</label>
+                                    <input type="email" class="form-input" value="support@boukilibre.com">
+                                </div>
+                                <button class="btn btn-primary">Enregistrer</button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Configuration Paiement</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Cle Stripe (masquee)</label>
+                                    <input type="password" class="form-input" value="sk_live_xxxxx" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label>PayPal Client ID (masque)</label>
+                                    <input type="password" class="form-input" value="xxxxx" disabled>
+                                </div>
+                                <p class="form-hint">Modifiez les cles de paiement dans le fichier .env</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Changer le mot de passe</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Mot de passe actuel</label>
+                                    <input type="password" class="form-input" id="currentPassword">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nouveau mot de passe</label>
+                                    <input type="password" class="form-input" id="newPassword">
+                                </div>
+                                <div class="form-group">
+                                    <label>Confirmer le mot de passe</label>
+                                    <input type="password" class="form-input" id="confirmPassword">
+                                </div>
+                                <button class="btn btn-primary" id="changePasswordBtn">Changer le mot de passe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>

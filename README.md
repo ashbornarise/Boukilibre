@@ -1,165 +1,262 @@
-# Boukilibre - Site Web Premium d'Ebooks
+# Boukilibre - Boutique Premium d'Ebooks
 
-Site web e-commerce premium pour la vente d'ebooks de développement personnel, entrepreneuriat et études.
+Plateforme e-commerce premium pour la vente d'ebooks de developpement personnel, entrepreneuriat et etudes.
 
-## 🚀 Fonctionnalités
+**Site web :** [boukilibre.com](https://boukilibre.com)
 
-- **Design Premium** : Interface moderne avec palette bleu/rose/gris élégant
-- **Catalogue d'Ebooks** : Filtres par catégorie, recherche, tri
-- **Panier d'Achat** : Système de panier avec localStorage
-- **Paiements Multiples** : Stripe, PayPal, Moov Money, Mixx by Yas
-- **Livraison Automatique** : Envoi d'emails avec liens de téléchargement
+---
+
+## Fonctionnalites
+
+- **Design Premium** : Interface moderne avec palette bleu/rose/gris elegant
+- **Catalogue d'Ebooks** : Filtres par categorie, recherche, tri
+- **Panier d'Achat** : Systeme de panier avec localStorage
+- **Paiements Multiples** : Stripe, PayPal, Moov Money
+- **Livraison Automatique** : Envoi d'emails avec liens de telechargement
 - **Newsletter** : Inscription avec emails de bienvenue
-- **Pages Complètes** : Accueil, Catalogue, FAQ, À propos, Contact
-- **Responsive** : Design mobile-first adaptatif
+- **Blog** : Articles educatifs et inspirants
+- **Dashboard Admin** : Gestion complete du site
+- **100% Responsive** : Design mobile-first adaptatif
 
-## 📋 Prérequis
+---
 
-- Node.js (v14 ou supérieur)
-- MongoDB (local ou Atlas)
-- Compte Gmail (pour l'envoi d'emails)
-- Clés API Stripe (optionnel pour les paiements)
+## Demarrage Rapide
 
-## ⚙️ Installation
+### Prerequis
 
-1. **Cloner le projet** (si applicable)
-   ```bash
-   cd c:\Users\Clement AGBALENYO\Documents\GitHub\Boukilibre
-   ```
+- Node.js (v18 ou superieur)
+- npm ou yarn
+- Compte MongoDB Atlas (gratuit)
 
-2. **Installer les dépendances**
-   ```bash
-   npm install
-   ```
+### Installation
 
-3. **Configuration des variables d'environnement**
-   
-   Créer un fichier `.env` à la racine du projet :
-   ```bash
-   cp .env.example .env
-   ```
-   
-   Remplir les variables dans `.env` :
-   ```
-   PORT=3000
-   MONGODB_URI=mongodb://localhost:27017/boukilibre
-   EMAIL_USER=votre-email@gmail.com
-   EMAIL_PASSWORD=votre-mot-de-passe-app
-   STRIPE_SECRET_KEY=sk_test_votre_cle
-   SITE_URL=http://localhost:3000
-   ```
+```bash
+# Cloner le projet
+git clone https://github.com/votre-repo/Boukilibre.git
+cd Boukilibre
 
-4. **Démarrer MongoDB** (si local)
-   ```bash
-   mongod
-   ```
+# Installer les dependances
+npm install
 
-5. **Lancer le serveur**
-   ```bash
-   npm run dev
-   ```
+# Copier le fichier de configuration
+cp .env.example .env
 
-6. **Accéder au site**
-   ```
-   http://localhost:3000
-   ```
+# Demarrer en mode developpement
+npm run dev
+```
 
-## 📁 Structure du Projet
+Le site sera accessible sur `http://localhost:3000`
+
+---
+
+## Structure du Projet
 
 ```
 Boukilibre/
-├── public/                 # Fichiers statiques frontend
-│   ├── css/               # Feuilles de style
-│   ├── js/                # Scripts JavaScript
-│   ├── images/            # Images et assets
-│   ├── index.html         # Page d'accueil
-│   ├── catalog.html       # Page catalogue
-│   ├── faq.html           # Page FAQ
-│   ├── about.html         # Page à propos
-│   └── contact.html       # Page contact
-├── models/                # Modèles MongoDB
+├── index.html              # Page d'accueil
+├── catalog.html            # Catalogue des ebooks
+├── product.html            # Page produit
+├── blog.html               # Blog
+├── about.html              # A propos
+├── faq.html                # Questions frequentes
+├── contact.html            # Contact
+├── checkout.html           # Page de paiement
+│
+├── css/                    # Feuilles de style
+│   ├── styles.css          # Styles globaux
+│   ├── home.css            # Styles page accueil
+│   ├── catalog.css         # Styles catalogue
+│   ├── product.css         # Styles page produit
+│   ├── blog.css            # Styles blog
+│   └── ...
+│
+├── js/                     # Scripts JavaScript
+│   ├── main.js             # Navigation et fonctions globales
+│   ├── cart.js             # Systeme de panier
+│   ├── catalog.js          # Filtres et recherche
+│   ├── checkout.js         # Processus de paiement
+│   └── ...
+│
+├── images/                 # Images et assets
+│   ├── logo.png            # Logo du site
+│   ├── ebook-1.jpg         # Couvertures des ebooks
+│   └── ...
+│
+├── admin/                  # Dashboard administrateur
+│   ├── index.html
+│   ├── admin.css
+│   └── admin.js
+│
+├── models/                 # Modeles MongoDB
 │   ├── Ebook.js
 │   ├── Order.js
 │   └── Subscriber.js
-├── routes/                # Routes API
+│
+├── routes/                 # Routes API
 │   ├── ebooks.js
 │   ├── orders.js
 │   ├── newsletter.js
 │   └── contact.js
-├── services/              # Services métier
-│   ├── emailService.js
-│   └── paymentService.js
-├── server.js              # Serveur Express
-├── package.json
-└── .env.example
+│
+├── docs/                   # Documentation
+│   ├── GUIDE_MONGODB_ATLAS.md
+│   ├── GUIDE_SEO.md
+│   ├── GUIDE_DEPLOIEMENT_FIREBASE.md
+│   ├── GUIDE_ADMINISTRATION.md
+│   └── GUIDE_PAIEMENTS.md
+│
+├── server.js               # Serveur Express
+├── package.json            # Dependances
+├── sitemap.xml             # Plan du site pour SEO
+├── robots.txt              # Instructions pour les moteurs de recherche
+└── .env                    # Variables d'environnement (non commite)
 ```
 
-## 🔧 Configuration Gmail
+---
 
-Pour l'envoi d'emails via Gmail :
+## Documentation
 
-1. Activer la validation en 2 étapes sur votre compte Google
-2. Générer un mot de passe d'application :
-   - Aller dans Paramètres Google > Sécurité
-   - Mots de passe d'application
-   - Créer un nouveau mot de passe pour "Mail"
-3. Utiliser ce mot de passe dans `EMAIL_PASSWORD`
+| Guide | Description |
+|-------|-------------|
+| [Guide MongoDB Atlas](docs/GUIDE_MONGODB_ATLAS.md) | Configuration de la base de donnees |
+| [Guide SEO](docs/GUIDE_SEO.md) | Optimisation pour les moteurs de recherche |
+| [Guide Deploiement Firebase](docs/GUIDE_DEPLOIEMENT_FIREBASE.md) | Deployer sur Firebase Hosting |
+| [Guide Administration](docs/GUIDE_ADMINISTRATION.md) | Utiliser le dashboard admin |
+| [Guide Paiements](docs/GUIDE_PAIEMENTS.md) | Configurer Stripe, PayPal, Moov Money |
 
-## 💳 Configuration Stripe
+---
 
-1. Créer un compte sur [Stripe](https://stripe.com)
-2. Récupérer les clés de test dans le Dashboard
-3. Ajouter les clés dans `.env`
-4. Configurer les webhooks pour `/api/orders/stripe-webhook`
+## Configuration
 
-## 📝 Ajouter des Ebooks
+### Variables d'environnement (.env)
 
-Utiliser l'API POST `/api/ebooks` avec un outil comme Postman :
+```env
+# Serveur
+PORT=3000
+NODE_ENV=development
 
-```json
-{
-  "title": "Titre de l'Ebook",
-  "description": "Description complète",
-  "category": "entrepreneuriat",
-  "price": 2000,
-  "coverImage": "/images/ebook-cover.jpg",
-  "pdfFile": "/files/ebook.pdf",
-  "benefits": ["Bénéfice 1", "Bénéfice 2"],
-  "features": ["Fonctionnalité 1", "Fonctionnalité 2"],
-  "badge": "Nouveau"
-}
+# MongoDB Atlas
+MONGODB_URI=mongodb+srv://user:password@cluster.mongodb.net/boukilibre
+
+# Paiements
+STRIPE_SECRET_KEY=sk_live_xxx
+STRIPE_PUBLISHABLE_KEY=pk_live_xxx
+PAYPAL_CLIENT_ID=xxx
+PAYPAL_CLIENT_SECRET=xxx
+MOOV_MERCHANT_ID=xxx
+MOOV_API_KEY=xxx
+
+# Email
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=contact@boukilibre.com
+EMAIL_PASS=xxx
+
+# Admin
+ADMIN_EMAIL=admin@boukilibre.com
+ADMIN_PASSWORD=xxx
+JWT_SECRET=xxx
 ```
 
-## 🧪 Tests
+---
 
-Pour tester le site :
+## Scripts disponibles
 
-1. **Frontend** : Ouvrir http://localhost:3000
-2. **API** : Tester les endpoints avec Postman
-3. **Paiement** : Utiliser les cartes de test Stripe
-   - Carte valide : `4242 4242 4242 4242`
-   - Date : N'importe quelle date future
-   - CVC : N'importe quel 3 chiffres
+```bash
+# Demarrer en developpement (avec hot reload)
+npm run dev
 
-## 🚀 Déploiement
+# Demarrer en production
+npm start
 
-### Variables d'environnement en production
+# Deployer sur Firebase
+firebase deploy
+```
 
-- Mettre `NODE_ENV=production`
-- Utiliser MongoDB Atlas pour la base de données
-- Configurer un service SMTP professionnel
-- Utiliser les vraies clés Stripe en production
+---
 
-### Hébergement recommandé
+## Administration
 
-- **Backend** : Heroku, Railway, Render
-- **Base de données** : MongoDB Atlas
-- **Fichiers statiques** : Vercel, Netlify
+Acces au dashboard admin : `https://boukilibre.com/admin/`
 
-## 📧 Support
+**Identifiants par defaut :**
+- Email : `admin@boukilibre.com`
+- Mot de passe : Configure dans `.env`
 
-Pour toute question : support@boukilibre.com
+**Fonctionnalites :**
+- Vue d'ensemble des ventes
+- Gestion des ebooks
+- Suivi des commandes
+- Gestion de la newsletter
+- Messages de contact
+- Parametres du site
 
-## 📄 Licence
+---
+
+## Deploiement
+
+### Option 1 : Firebase (Recommande)
+
+```bash
+# Installer Firebase CLI
+npm install -g firebase-tools
+
+# Se connecter
+firebase login
+
+# Initialiser
+firebase init
+
+# Deployer
+firebase deploy
+```
+
+Voir le [Guide Deploiement Firebase](docs/GUIDE_DEPLOIEMENT_FIREBASE.md) pour plus de details.
+
+### Option 2 : Vercel
+
+```bash
+# Installer Vercel CLI
+npm install -g vercel
+
+# Deployer
+vercel
+```
+
+---
+
+## SEO
+
+Le site est optimise pour le referencement avec :
+- Meta tags sur toutes les pages
+- Open Graph pour les reseaux sociaux
+- Sitemap.xml
+- Robots.txt
+- URLs propres
+- Contenu structure avec H1, H2, H3
+
+Voir le [Guide SEO](docs/GUIDE_SEO.md) pour plus de details.
+
+---
+
+## Technologies
+
+- **Frontend** : HTML5, CSS3, JavaScript vanilla
+- **Backend** : Node.js, Express.js
+- **Base de donnees** : MongoDB (Atlas)
+- **Paiements** : Stripe, PayPal, Moov Money
+- **Hebergement** : Firebase Hosting
+- **Emails** : Nodemailer
+
+---
+
+## Support
+
+- **Email** : support@boukilibre.com
+- **Site** : [boukilibre.com/contact](https://boukilibre.com/contact.html)
+
+---
+
+## Licence
 
 ISC © 2026 Boukilibre

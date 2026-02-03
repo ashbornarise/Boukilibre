@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Pages a ne pas indexer
+Disallow: /admin/
+Disallow: /api/
+Disallow: /checkout.html
+Disallow: /.env
+
+# Sitemap
+Sitemap: https://boukilibre.com/sitemap.xml
