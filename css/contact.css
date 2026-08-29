@@ -101,7 +101,6 @@
 
 .faq-link-card {
     padding: var(--space-6);
-    background: linear-gradient(135deg, var(--color-gray-100) 0%, var(--color-white) 100%);
     text-align: center;
 }
 

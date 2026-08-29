@@ -42,9 +42,9 @@ async function sendWelcomeEmail(email) {
                 <style>
                     body { font-family: 'Inter', Arial, sans-serif; line-height: 1.6; color: #2d3748; }
                     .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-                    .header { background: linear-gradient(135deg, #1a2f5a 0%, #2d4a7c 100%); color: white; padding: 40px 20px; text-align: center; border-radius: 10px 10px 0 0; }
+                    .header { background: linear-gradient(135deg, #4b3fe0 0%, #6c63ff 100%); color: white; padding: 40px 20px; text-align: center; border-radius: 10px 10px 0 0; }
                     .content { background: #ffffff; padding: 30px; border: 1px solid #e2e8f0; }
-                    .button { display: inline-block; padding: 15px 30px; background: linear-gradient(135deg, #1a2f5a 0%, #2d4a7c 100%); color: white; text-decoration: none; border-radius: 8px; margin: 20px 0; }
+                    .button { display: inline-block; padding: 15px 30px; background: linear-gradient(135deg, #4b3fe0 0%, #6c63ff 100%); color: white; text-decoration: none; border-radius: 8px; margin: 20px 0; }
                     .footer { background: #f7fafc; padding: 20px; text-align: center; font-size: 12px; color: #718096; border-radius: 0 0 10px 10px; }
                 </style>
             </head>
@@ -87,7 +87,7 @@ async function sendOrderConfirmationEmail(order, downloadLinks) {
         <li style="margin-bottom: 15px;">
             <strong>${item.title}</strong><br>
             <a href="${downloadLinks.find(link => link.ebookId.toString() === item.ebookId.toString())?.url}" 
-               style="color: #1a2f5a; text-decoration: underline;">
+               style="color: #4b3fe0; text-decoration: underline;">
                 📥 Télécharger maintenant
             </a>
         </li>
@@ -104,7 +104,7 @@ async function sendOrderConfirmationEmail(order, downloadLinks) {
                 <style>
                     body { font-family: 'Inter', Arial, sans-serif; line-height: 1.6; color: #2d3748; }
                     .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-                    .header { background: linear-gradient(135deg, #1a2f5a 0%, #2d4a7c 100%); color: white; padding: 40px 20px; text-align: center; border-radius: 10px 10px 0 0; }
+                    .header { background: linear-gradient(135deg, #4b3fe0 0%, #6c63ff 100%); color: white; padding: 40px 20px; text-align: center; border-radius: 10px 10px 0 0; }
                     .content { background: #ffffff; padding: 30px; border: 1px solid #e2e8f0; }
                     .order-details { background: #f7fafc; padding: 20px; border-radius: 8px; margin: 20px 0; }
                     .footer { background: #f7fafc; padding: 20px; text-align: center; font-size: 12px; color: #718096; border-radius: 0 0 10px 10px; }
@@ -185,7 +185,7 @@ async function sendContactConfirmation(name, email) {
                 <style>
                     body { font-family: 'Inter', Arial, sans-serif; line-height: 1.6; color: #2d3748; }
                     .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-                    .header { background: linear-gradient(135deg, #1a2f5a 0%, #2d4a7c 100%); color: white; padding: 40px 20px; text-align: center; border-radius: 10px 10px 0 0; }
+                    .header { background: linear-gradient(135deg, #4b3fe0 0%, #6c63ff 100%); color: white; padding: 40px 20px; text-align: center; border-radius: 10px 10px 0 0; }
                     .content { background: #ffffff; padding: 30px; border: 1px solid #e2e8f0; }
                     .footer { background: #f7fafc; padding: 20px; text-align: center; font-size: 12px; color: #718096; border-radius: 0 0 10px 10px; }
                 </style>

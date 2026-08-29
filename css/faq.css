@@ -1,24 +1,5 @@
 /* FAQ Page Styles */
-.page-header {
-    padding: var(--space-12) 0 var(--space-8);
-    margin-top: 70px;
-    background: linear-gradient(135deg,
-            var(--color-primary-dark) 0%,
-            var(--color-primary) 100%);
-    color: var(--color-white);
-    text-align: center;
-}
-
-.page-title {
-    font-size: var(--font-size-5xl);
-    color: var(--color-white);
-    margin-bottom: var(--space-3);
-}
-
-.page-subtitle {
-    font-size: var(--font-size-xl);
-    color: rgba(255, 255, 255, 0.9);
-}
+/* Page header comes from the shared .page-header glass panel in styles.css */
 
 .faq-search {
     margin-bottom: var(--space-6);
@@ -37,22 +18,22 @@
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
     color: var(--color-gray-700);
-    background-color: var(--color-white);
-    border: 2px solid var(--color-gray-300);
-    border-radius: var(--radius-md);
+    background: var(--neu-base);
+    border: none;
+    border-radius: var(--radius-full);
+    box-shadow: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
     cursor: pointer;
     transition: all var(--transition-base);
 }
 
 .category-btn:hover {
-    border-color: var(--color-primary);
     color: var(--color-primary);
 }
 
 .category-btn.active {
     color: var(--color-white);
-    background-color: var(--color-primary);
-    border-color: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 .faq-accordion {
@@ -63,9 +44,9 @@
 }
 
 .faq-item {
-    background-color: var(--color-white);
+    background: var(--neu-base);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 6px 6px 12px var(--neu-shadow-dark), -6px -6px 12px var(--neu-shadow-light);
     overflow: hidden;
     transition: all var(--transition-base);
 }
@@ -75,7 +56,7 @@
 }
 
 .faq-item:hover {
-    box-shadow: var(--shadow-md);
+    box-shadow: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
 }
 
 .faq-question {
@@ -137,10 +118,12 @@
 .faq-cta {
     text-align: center;
     padding: var(--space-8) var(--space-4);
-    background: linear-gradient(135deg,
-            var(--color-gray-100) 0%,
-            var(--color-white) 100%);
-    border-radius: var(--radius-xl);
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--glass-shadow);
 }
 
 .faq-cta h3 {
@@ -155,10 +138,6 @@
 }
 
 @media (max-width: 768px) {
-    .page-title {
-        font-size: var(--font-size-4xl);
-    }
-
     .faq-categories {
         justify-content: flex-start;
     }

@@ -71,7 +71,7 @@ class ShoppingCart {
             position: fixed;
             top: 100px;
             right: 20px;
-            background: linear-gradient(135deg, #1a2f5a 0%, #2d4a7c 100%);
+            background: linear-gradient(135deg, #4b3fe0 0%, #6c63ff 100%);
             color: white;
             padding: 1rem 1.5rem;
             border-radius: 0.5rem;
@@ -218,14 +218,17 @@ cartStyles.textContent = `
     
     .cart-modal-content {
         position: relative;
-        background: white;
-        border-radius: 1rem;
+        background: rgba(255, 255, 255, 0.75);
+        -webkit-backdrop-filter: blur(24px) saturate(180%);
+        backdrop-filter: blur(24px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.65);
+        border-radius: 1.5rem;
         max-width: 600px;
         width: 90%;
         max-height: 80vh;
         display: flex;
         flex-direction: column;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 25px 50px -12px rgba(75, 63, 224, 0.3);
     }
     
     .cart-modal-header {
@@ -238,7 +241,7 @@ cartStyles.textContent = `
     
     .cart-modal-header h3 {
         margin: 0;
-        color: #1a2f5a;
+        color: #4b3fe0;
     }
     
     .cart-modal-close {
@@ -273,20 +276,20 @@ cartStyles.textContent = `
         justify-content: space-between;
         align-items: center;
         padding: 1rem;
-        background: #f7fafc;
+        background: #eef0f6;
         border-radius: 0.5rem;
     }
     
     .cart-item-info h4 {
         margin: 0 0 0.5rem 0;
         font-size: 1rem;
-        color: #1a2f5a;
+        color: #4b3fe0;
     }
     
     .cart-item-price {
         margin: 0;
         font-weight: 600;
-        color: #1a2f5a;
+        color: #4b3fe0;
     }
     
     .cart-modal-footer {
@@ -300,7 +303,7 @@ cartStyles.textContent = `
         align-items: center;
         font-size: 1.25rem;
         margin-bottom: 1rem;
-        color: #1a2f5a;
+        color: #4b3fe0;
     }
     
     @keyframes slideInRight {
