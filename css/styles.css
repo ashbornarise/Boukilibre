@@ -479,6 +479,10 @@ strong {
   transition: all var(--transition-base);
 }
 
+.navbar.scrolled {
+  box-shadow: var(--shadow-md);
+}
+
 .navbar-container {
   display: flex;
   align-items: center;

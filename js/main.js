@@ -122,13 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('scroll', function () {
         const currentScroll = window.pageYOffset;
-
-        if (currentScroll > 100) {
-            navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
-        } else {
-            navbar.style.boxShadow = '0 1px 2px 0 rgba(0, 0, 0, 0.05)';
-        }
-
+        navbar.classList.toggle('scrolled', currentScroll > 100);
         lastScroll = currentScroll;
     });
 });
