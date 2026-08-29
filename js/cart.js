@@ -20,7 +20,7 @@ class ShoppingCart {
         const existingItem = this.items.find(item => item.id === id);
 
         if (existingItem) {
-            alert('Cet ebook est déjà dans votre panier.');
+            alert('Ce produit est déjà dans votre panier.');
             return;
         }
 
@@ -32,7 +32,7 @@ class ShoppingCart {
 
         this.saveCart();
         this.updateCartUI();
-        this.showNotification('Ebook ajouté au panier !');
+        this.showNotification('Produit ajouté au panier !');
     }
 
     removeItem(id) {

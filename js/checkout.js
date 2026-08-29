@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="order-item">
                 <div class="order-item-info">
                     <h4>${item.title}</h4>
-                    <span class="order-item-category">Ebook PDF</span>
+                    <span class="order-item-category">Telechargement numerique</span>
                 </div>
                 <span class="order-item-price">${item.price.toLocaleString()} FCFA</span>
             </div>

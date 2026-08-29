@@ -75,7 +75,7 @@
                         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
                         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
                     </svg>
-                    <span>Ebooks</span>
+                    <span>Produits</span>
                 </a>
                 <a href="#" class="nav-item" data-page="orders">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -198,8 +198,8 @@
                                 </svg>
                             </div>
                             <div class="stat-info">
-                                <h3>Ebooks Actifs</h3>
-                                <p class="stat-value" id="totalEbooks">2</p>
+                                <h3>Produits Actifs</h3>
+                                <p class="stat-value" id="totalEbooks">0</p>
                                 <span class="stat-change">Catalogue</span>
                             </div>
                         </div>
@@ -236,8 +236,8 @@
                 <!-- Ebooks Page -->
                 <div class="page" id="ebooksPage">
                     <div class="page-header-actions">
-                        <h2>Gestion des Ebooks</h2>
-                        <button class="btn btn-primary" id="addEbookBtn">+ Ajouter un ebook</button>
+                        <h2>Gestion des Produits</h2>
+                        <button class="btn btn-primary" id="addEbookBtn">+ Ajouter un produit</button>
                     </div>
 
                     <div class="card">
@@ -247,34 +247,16 @@
                                     <tr>
                                         <th>Image</th>
                                         <th>Titre</th>
+                                        <th>Type</th>
                                         <th>Categorie</th>
                                         <th>Prix</th>
-                                        <th>Ventes</th>
+                                        <th>Statut</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody id="ebooksTable">
                                     <tr>
-                                        <td><img src="../images/ebook-1.jpg" alt="" class="table-img"></td>
-                                        <td>Guide de l'Entrepreneur Moderne</td>
-                                        <td><span class="badge badge-primary">Entrepreneuriat</span></td>
-                                        <td>2 000 FCFA</td>
-                                        <td>0</td>
-                                        <td>
-                                            <button class="action-btn edit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
-                                            <button class="action-btn delete"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="../images/ebook-2.jpg" alt="" class="table-img"></td>
-                                        <td>Maitrisez Votre Productivite</td>
-                                        <td><span class="badge badge-accent">Dev. Personnel</span></td>
-                                        <td>2 000 FCFA</td>
-                                        <td>0</td>
-                                        <td>
-                                            <button class="action-btn edit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
-                                            <button class="action-btn delete"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
-                                        </td>
+                                        <td colspan="7" class="empty-state">Connectez-vous pour charger les produits</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -446,6 +428,115 @@
                 </div>
             </div>
         </main>
+    </div>
+
+    <!-- Product Add/Edit Modal -->
+    <div class="modal-overlay" id="productModal" style="display:none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="productModalTitle">Ajouter un produit</h3>
+                <button type="button" class="modal-close" id="productModalClose">&times;</button>
+            </div>
+            <form id="productForm" class="modal-body">
+                <input type="hidden" id="productId">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productType">Type</label>
+                        <select id="productType" class="form-select" required>
+                            <option value="ebook">Ebook</option>
+                            <option value="application">Application</option>
+                            <option value="outil">Outil</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="productBadgeSelect">Badge</label>
+                        <select id="productBadgeSelect" class="form-select">
+                            <option value="">Aucun</option>
+                            <option value="Nouveau">Nouveau</option>
+                            <option value="Populaire">Populaire</option>
+                            <option value="Bestseller">Bestseller</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="productTitle">Titre</label>
+                    <input type="text" id="productTitle" class="form-input" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productCategory">Categorie</label>
+                        <input type="text" id="productCategory" class="form-input" placeholder="ex: entrepreneuriat, productivite, design" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice">Prix (FCFA)</label>
+                        <input type="number" id="productPrice" class="form-input" min="0" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="productDescription">Description</label>
+                    <textarea id="productDescription" class="form-input" rows="3" required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productBenefits">Ce que ça apporte (une ligne par point)</label>
+                        <textarea id="productBenefits" class="form-input" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="productFeatures">Caracteristiques (une ligne par point)</label>
+                        <textarea id="productFeatures" class="form-input" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productAudience">Public cible (une ligne par point)</label>
+                        <textarea id="productAudience" class="form-input" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="productToc">Sommaire (format "Titre - Description", une ligne par chapitre)</label>
+                        <textarea id="productToc" class="form-input" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productCoverImage">Image de couverture</label>
+                        <input type="file" id="productCoverImage" class="form-input" accept="image/*">
+                        <p class="form-hint" id="currentCoverHint"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="productFile">Fichier du produit (PDF, ZIP, EXE...)</label>
+                        <input type="file" id="productFile" class="form-input">
+                        <p class="form-hint">Max 4 Mo. Pour un fichier plus lourd (installeur, app volumineuse), utilisez le lien externe ci-dessous.</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="productFileUrlExternal">Ou lien externe vers le fichier (Google Drive, GitHub Releases...)</label>
+                    <input type="url" id="productFileUrlExternal" class="form-input" placeholder="https://...">
+                    <p class="form-hint" id="currentFileHint"></p>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="productIsActive" checked>
+                        Produit actif (visible dans le catalogue)
+                    </label>
+                </div>
+
+                <div class="modal-message" id="productFormMessage"></div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="productCancelBtn">Annuler</button>
+                    <button type="submit" class="btn btn-primary" id="productSubmitBtn">Enregistrer</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <script src="admin.js"></script>

@@ -15,7 +15,7 @@ const transporter = {
 if (process.env.EMAIL_USER && process.env.EMAIL_PASSWORD && process.env.EMAIL_USER !== 'your-email@gmail.com') {
     try {
         const nodemailer = require('nodemailer');
-        const realTransporter = nodemailer.createTransporter({
+        const realTransporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
                 user: process.env.EMAIL_USER,

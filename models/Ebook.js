@@ -1,6 +1,12 @@
 const mongoose = require('mongoose');
 
 const ebookSchema = new mongoose.Schema({
+    type: {
+        type: String,
+        required: true,
+        enum: ['ebook', 'application', 'outil'],
+        default: 'ebook'
+    },
     title: {
         type: String,
         required: true,
@@ -13,7 +19,7 @@ const ebookSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true,
-        enum: ['entrepreneuriat', 'developpement', 'etudes']
+        trim: true
     },
     price: {
         type: Number,
@@ -24,9 +30,12 @@ const ebookSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    pdfFile: {
+    fileUrl: {
         type: String,
         required: true
+    },
+    fileName: {
+        type: String
     },
     benefits: [{
         type: String

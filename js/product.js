@@ -1,208 +1,138 @@
 // Product Page JavaScript
-document.addEventListener('DOMContentLoaded', function () {
-    // Product data
-    const products = {
-        1: {
-            id: 1,
-            title: "Guide Complet de l'Entrepreneur Moderne",
-            category: "Entrepreneuriat",
-            description: "Apprenez les strategies eprouvees pour lancer et developper votre entreprise avec succes. Un guide pas a pas pour transformer votre idee en realite.",
-            price: 2000,
-            badge: "Nouveau",
-            image: "images/ebook-1.jpg",
-            learnings: [
-                "Comment valider votre idee de business avant de vous lancer",
-                "Les strategies de lancement qui fonctionnent vraiment",
-                "Comment creer un business plan solide et realiste",
-                "Les techniques de marketing digital pour attirer vos premiers clients",
-                "La gestion financiere simplifiee pour les debutants"
-            ]
-        },
-        2: {
-            id: 2,
-            title: "Maitrisez Votre Productivite et Votre Temps",
-            category: "Developpement Personnel",
-            description: "Decouvrez les methodes scientifiquement prouvees pour multiplier votre productivite et atteindre vos objectifs plus rapidement.",
-            price: 2000,
-            badge: "Populaire",
-            image: "images/ebook-2.jpg",
-            learnings: [
-                "Les techniques de gestion du temps les plus efficaces",
-                "Comment eliminer la procrastination definitivement",
-                "Les habitudes des personnes hautement productives",
-                "Comment maintenir votre concentration pendant des heures",
-                "Les outils et applications qui boostent votre productivite"
-            ]
-        }
-    };
+document.addEventListener('DOMContentLoaded', async function () {
+    const TYPE_LABELS = { ebook: 'Ebook', application: 'Application', outil: 'Outil' };
 
-    // Get product ID from URL
     const urlParams = new URLSearchParams(window.location.search);
-    const productId = urlParams.get('id') || 1;
-    const product = products[productId];
+    const productId = urlParams.get('id');
 
-    if (product) {
-        // Update page content
-        document.getElementById('productTitle').textContent = product.title;
-        document.getElementById('productCategory').textContent = product.category;
-        document.getElementById('productDescription').textContent = product.description;
-        document.getElementById('productPrice').textContent = product.price.toLocaleString() + ' FCFA';
-        document.getElementById('productBadge').textContent = product.badge;
-        document.getElementById('productImage').src = product.image;
-        document.getElementById('productImage').alt = product.title;
+    if (!productId) {
+        window.location.href = 'catalog.html';
+        return;
+    }
 
-        // Update page title
-        document.title = product.title + ' - Boukilibre';
+    let product;
+    try {
+        const response = await fetch(`/api/ebooks/${productId}`);
+        if (!response.ok) throw new Error('not found');
+        product = await response.json();
+    } catch (error) {
+        window.location.href = 'catalog.html';
+        return;
+    }
 
-        // Update add to cart button
-        const addToCartBtn = document.getElementById('addToCartBtn');
-        addToCartBtn.dataset.id = product.id;
-        addToCartBtn.dataset.title = product.title;
-        addToCartBtn.dataset.price = product.price;
+    // Basic info
+    document.getElementById('productTitle').textContent = product.title;
+    document.getElementById('productCategory').textContent =
+        `${TYPE_LABELS[product.type] || ''} · ${product.category}`;
+    document.getElementById('productDescription').textContent = product.description;
+    document.getElementById('productPrice').textContent = product.price.toLocaleString() + ' FCFA';
+    document.getElementById('productImage').src = product.coverImage;
+    document.getElementById('productImage').alt = product.title;
+    document.title = product.title + ' - Boukilibre';
 
-        // Update learnings list
-        const learningsList = document.getElementById('learningsList');
-        learningsList.innerHTML = product.learnings.map(learning => `
+    const badgeEl = document.getElementById('productBadge');
+    if (product.badge) {
+        badgeEl.textContent = product.badge;
+        badgeEl.style.display = '';
+    } else {
+        badgeEl.style.display = 'none';
+    }
+
+    // Add to cart button
+    const addToCartBtn = document.getElementById('addToCartBtn');
+    addToCartBtn.dataset.id = product._id;
+    addToCartBtn.dataset.title = product.title;
+    addToCartBtn.dataset.price = product.price;
+
+    // Benefits / learnings
+    const learningsList = document.getElementById('learningsList');
+    const learningsSection = learningsList.closest('.product-learnings');
+    if (product.benefits && product.benefits.length > 0) {
+        learningsList.innerHTML = product.benefits.map((item) => `
             <li>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="20 6 9 17 4 12" />
                 </svg>
-                <span>${learning}</span>
+                <span>${item}</span>
             </li>
         `).join('');
+    } else if (learningsSection) {
+        learningsSection.style.display = 'none';
+    }
 
-        // Update related ebooks (show the other product)
+    // Target audience
+    const audienceList = document.querySelector('.audience-list');
+    const audienceSection = audienceList ? audienceList.closest('.product-audience') : null;
+    if (product.targetAudience && product.targetAudience.length > 0 && audienceList) {
+        audienceList.innerHTML = product.targetAudience.map((item) => `
+            <div class="audience-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="7" r="4" />
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                </svg>
+                <div><p>${item}</p></div>
+            </div>
+        `).join('');
+    } else if (audienceSection) {
+        audienceSection.style.display = 'none';
+    }
+
+    // Table of contents (mostly relevant for ebooks)
+    const tocList = document.querySelector('.toc-list');
+    const tocSection = tocList ? tocList.closest('section') : null;
+    if (product.tableOfContents && product.tableOfContents.length > 0 && tocList) {
+        tocList.innerHTML = product.tableOfContents.map((item, index) => `
+            <div class="toc-item">
+                <div class="toc-number">${index + 1}</div>
+                <div class="toc-content">
+                    <h4>${item.chapter}</h4>
+                    <p>${item.description || ''}</p>
+                </div>
+            </div>
+        `).join('');
+    } else if (tocSection) {
+        tocSection.style.display = 'none';
+    }
+
+    // Related products (same type)
+    try {
+        const relatedResponse = await fetch(`/api/ebooks?type=${product.type}`);
+        const related = relatedResponse.ok ? await relatedResponse.json() : [];
+        const others = related.filter((p) => p._id !== product._id).slice(0, 2);
+
         const relatedEbooks = document.getElementById('relatedEbooks');
-        const otherProducts = Object.values(products).filter(p => p.id !== parseInt(productId));
-
-        relatedEbooks.innerHTML = otherProducts.map(p => `
+        relatedEbooks.innerHTML = others.map((p) => `
             <div class="ebook-card card-premium">
                 <div class="ebook-image">
-                    <img src="${p.image}" alt="${p.title}" loading="lazy">
-                    <div class="ebook-badge">${p.badge}</div>
+                    <img src="${p.coverImage}" alt="${p.title}" loading="lazy">
+                    ${p.badge ? `<div class="ebook-badge">${p.badge}</div>` : ''}
                 </div>
                 <div class="ebook-content">
-                    <div class="ebook-category">${p.category}</div>
+                    <div class="ebook-category">${TYPE_LABELS[p.type] || ''} · ${p.category}</div>
                     <h3 class="ebook-title">${p.title}</h3>
                     <p class="ebook-description">${p.description}</p>
                     <div class="ebook-footer">
                         <div class="ebook-price">
                             <span class="price-amount">${p.price.toLocaleString()} FCFA</span>
                         </div>
-                        <a href="product.html?id=${p.id}" class="btn btn-primary">Decouvrir</a>
+                        <a href="product.html?id=${p._id}" class="btn btn-primary">Decouvrir</a>
                     </div>
                 </div>
             </div>
         `).join('');
-
-        // Update problem/solution based on product category
-        if (product.category === "Developpement Personnel") {
-            document.querySelector('.problem-box p').textContent =
-                "Vous vous sentez deborde et improductif ? Vous avez l'impression de ne jamais avoir assez de temps pour accomplir vos objectifs ?";
-            document.querySelector('.solution-box p').textContent =
-                "Ce guide vous donne les methodes eprouvees pour reprendre le controle de votre temps et multiplier votre productivite.";
-
-            // Update audience
-            document.querySelector('.audience-list').innerHTML = `
-                <div class="audience-item">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                        <circle cx="12" cy="7" r="4" />
-                    </svg>
-                    <div>
-                        <strong>Professionnels debördes</strong>
-                        <p>Qui veulent accomplir plus en moins de temps</p>
-                    </div>
-                </div>
-                <div class="audience-item">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                        <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                    </svg>
-                    <div>
-                        <strong>Etudiants</strong>
-                        <p>Qui veulent optimiser leur temps d'etude</p>
-                    </div>
-                </div>
-                <div class="audience-item">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                    </svg>
-                    <div>
-                        <strong>Entrepreneurs</strong>
-                        <p>Qui jonglent avec de multiples responsabilites</p>
-                    </div>
-                </div>
-            `;
-
-            // Update table of contents
-            document.querySelector('.toc-list').innerHTML = `
-                <div class="toc-item">
-                    <div class="toc-number">1</div>
-                    <div class="toc-content">
-                        <h4>Comprendre votre relation au temps</h4>
-                        <p>Analysez vos habitudes actuelles et identifiez vos points faibles.</p>
-                    </div>
-                </div>
-                <div class="toc-item">
-                    <div class="toc-number">2</div>
-                    <div class="toc-content">
-                        <h4>La methode Pomodoro et ses variantes</h4>
-                        <p>Maitrisez cette technique simple mais puissante.</p>
-                    </div>
-                </div>
-                <div class="toc-item">
-                    <div class="toc-number">3</div>
-                    <div class="toc-content">
-                        <h4>Priorisation et planification</h4>
-                        <p>Apprenez a identifier ce qui compte vraiment.</p>
-                    </div>
-                </div>
-                <div class="toc-item">
-                    <div class="toc-number">4</div>
-                    <div class="toc-content">
-                        <h4>Eliminer les distractions</h4>
-                        <p>Creez un environnement propice a la concentration.</p>
-                    </div>
-                </div>
-                <div class="toc-item">
-                    <div class="toc-number">5</div>
-                    <div class="toc-content">
-                        <h4>Habitudes de haute performance</h4>
-                        <p>Developpez des routines qui boostent votre productivite.</p>
-                    </div>
-                </div>
-                <div class="toc-item">
-                    <div class="toc-number">6</div>
-                    <div class="toc-content">
-                        <h4>Outils et applications</h4>
-                        <p>Les meilleurs outils pour gerer votre temps efficacement.</p>
-                    </div>
-                </div>
-                <div class="toc-item">
-                    <div class="toc-number">7</div>
-                    <div class="toc-content">
-                        <h4>Maintenir la motivation</h4>
-                        <p>Comment rester productif sur le long terme.</p>
-                    </div>
-                </div>
-            `;
-        }
+    } catch (error) {
+        // No related products available
     }
 
-    // Add smooth scroll for any anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             if (href !== '#') {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             }
         });

@@ -4,6 +4,17 @@ const Order = require('../models/Order');
 const Ebook = require('../models/Ebook');
 const paymentService = require('../services/paymentService');
 const emailService = require('../services/emailService');
+const { requireAdmin } = require('../middleware/auth');
+
+// Get all orders (admin only)
+router.get('/', requireAdmin, async (req, res) => {
+    try {
+        const orders = await Order.find().sort({ createdAt: -1 });
+        res.json(orders);
+    } catch (error) {
+        res.status(500).json({ error: 'Error fetching orders', message: error.message });
+    }
+});
 
 // Create new order
 router.post('/', async (req, res) => {
@@ -132,7 +143,7 @@ async function processSuccessfulPayment(orderId, paymentMethod, transactionId) {
         // Generate download links (valid for 30 days)
         const downloadLinks = order.items.map(item => ({
             ebookId: item.ebookId,
-            url: `${process.env.SITE_URL}/api/download/${order._id}/${item.ebookId}`,
+            url: `${process.env.SITE_URL}/api/download/${order._id}/${item.ebookId._id}`,
             expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) // 30 days
         }));
 

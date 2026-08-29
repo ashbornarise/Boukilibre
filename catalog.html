@@ -55,8 +55,8 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1 class="page-title">Notre Catalogue d'Ebooks</h1>
-            <p class="page-subtitle">Découvrez nos guides premium pour transformer votre vie</p>
+            <h1 class="page-title">Notre Catalogue</h1>
+            <p class="page-subtitle">Ebooks, applications et outils premium pour transformer votre vie</p>
         </div>
     </section>
 
@@ -78,12 +78,19 @@
                 </div>
 
                 <div class="filter-group">
+                    <label class="filter-label">Type :</label>
+                    <div class="filter-buttons" id="typeFilters">
+                        <button class="filter-btn active" data-type="all">Tous</button>
+                        <button class="filter-btn" data-type="ebook">Ebooks</button>
+                        <button class="filter-btn" data-type="application">Applications</button>
+                        <button class="filter-btn" data-type="outil">Outils</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
                     <label class="filter-label">Catégorie :</label>
-                    <div class="filter-buttons">
-                        <button class="filter-btn active" data-category="all">Tous</button>
-                        <button class="filter-btn" data-category="entrepreneuriat">Entrepreneuriat</button>
-                        <button class="filter-btn" data-category="developpement">Développement Personnel</button>
-                        <button class="filter-btn" data-category="etudes">Études</button>
+                    <div class="filter-buttons" id="categoryFilters">
+                        <button class="filter-btn active" data-category="all">Toutes</button>
                     </div>
                 </div>
 
@@ -100,60 +107,12 @@
 
             <!-- Results Count -->
             <div class="results-info">
-                <p><span id="resultsCount">2</span> ebook(s) trouvé(s)</p>
+                <p><span id="resultsCount">0</span> produit(s) trouvé(s)</p>
             </div>
 
-            <!-- Ebooks Grid -->
+            <!-- Products Grid -->
             <div class="catalog-grid grid grid-3" id="catalogGrid">
-                <!-- Ebook 1 -->
-                <div class="ebook-card card-premium" data-category="entrepreneuriat" data-price="2000">
-                    <div class="ebook-image">
-                        <img src="images/ebook-1.jpg" alt="Guide Complet de l'Entrepreneur Moderne" loading="lazy">
-                        <div class="ebook-badge">Nouveau</div>
-                    </div>
-                    <div class="ebook-content">
-                        <div class="ebook-category">Entrepreneuriat</div>
-                        <h3 class="ebook-title">Guide Complet de l'Entrepreneur Moderne</h3>
-                        <p class="ebook-description">Apprenez les stratégies éprouvées pour lancer et développer votre
-                            entreprise avec succès.</p>
-                        <div class="ebook-footer">
-                            <div class="ebook-price">
-                                <span class="price-amount">2 000 FCFA</span>
-                            </div>
-                            <div class="ebook-actions">
-                                <a href="product.html?id=1" class="btn btn-secondary btn-sm">Détails</a>
-                                <button class="btn btn-primary btn-sm add-to-cart" data-id="1"
-                                    data-title="Guide Complet de l'Entrepreneur Moderne"
-                                    data-price="2000">Ajouter</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Ebook 2 -->
-                <div class="ebook-card card-premium" data-category="developpement" data-price="2000">
-                    <div class="ebook-image">
-                        <img src="images/ebook-2.jpg" alt="Maîtrisez Votre Productivité et Votre Temps" loading="lazy">
-                        <div class="ebook-badge">Populaire</div>
-                    </div>
-                    <div class="ebook-content">
-                        <div class="ebook-category">Développement Personnel</div>
-                        <h3 class="ebook-title">Maîtrisez Votre Productivité et Votre Temps</h3>
-                        <p class="ebook-description">Découvrez les méthodes scientifiquement prouvées pour multiplier
-                            votre productivité.</p>
-                        <div class="ebook-footer">
-                            <div class="ebook-price">
-                                <span class="price-amount">2 000 FCFA</span>
-                            </div>
-                            <div class="ebook-actions">
-                                <a href="product.html?id=2" class="btn btn-secondary btn-sm">Détails</a>
-                                <button class="btn btn-primary btn-sm add-to-cart" data-id="2"
-                                    data-title="Maîtrisez Votre Productivité et Votre Temps"
-                                    data-price="2000">Ajouter</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Filled dynamically from /api/ebooks -->
             </div>
 
             <!-- No Results Message -->
@@ -162,7 +121,7 @@
                     <circle cx="11" cy="11" r="8" />
                     <path d="m21 21-4.35-4.35" />
                 </svg>
-                <h3>Aucun ebook trouvé</h3>
+                <h3>Aucun produit trouvé</h3>
                 <p>Essayez de modifier vos critères de recherche ou de filtrage.</p>
             </div>
         </div>

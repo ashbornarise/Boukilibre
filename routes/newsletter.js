@@ -62,6 +62,25 @@ router.post('/unsubscribe', async (req, res) => {
     }
 });
 
+// Unsubscribe by ID (used by the admin dashboard)
+router.post('/unsubscribe-id/:id', async (req, res) => {
+    try {
+        const subscriber = await Subscriber.findByIdAndUpdate(
+            req.params.id,
+            { isActive: false, unsubscribedAt: Date.now() },
+            { new: true }
+        );
+
+        if (!subscriber) {
+            return res.status(404).json({ error: 'Subscriber not found' });
+        }
+
+        res.json({ message: 'Desinscrit avec succes' });
+    } catch (error) {
+        res.status(500).json({ error: 'Error unsubscribing', message: error.message });
+    }
+});
+
 // Get all subscribers (admin only)
 router.get('/', async (req, res) => {
     try {
